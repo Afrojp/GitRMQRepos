@@ -9,10 +9,13 @@ namespace Producer
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
+         
             Producer1 p = new Producer1();
-            p.publish();
+            //p.pubSingleMsg();
+            p.pubMultipleMsg();
             Console.ReadLine();
         }
     }
