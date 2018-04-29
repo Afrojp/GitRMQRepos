@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainRMQProducerProg", "Producer\MainRMQProducerProg.csproj", "{81ABFCE8-2093-43CB-92D6-5638A7D1C8CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainRMQConsumerProg", "..\Consumer\MainRMQConsumerProg\MainRMQConsumerProg.csproj", "{3B40A31D-3C79-4C5C-9B03-D2BA1D08C556}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{81ABFCE8-2093-43CB-92D6-5638A7D1C8CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81ABFCE8-2093-43CB-92D6-5638A7D1C8CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81ABFCE8-2093-43CB-92D6-5638A7D1C8CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B40A31D-3C79-4C5C-9B03-D2BA1D08C556}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B40A31D-3C79-4C5C-9B03-D2BA1D08C556}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B40A31D-3C79-4C5C-9B03-D2BA1D08C556}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B40A31D-3C79-4C5C-9B03-D2BA1D08C556}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
