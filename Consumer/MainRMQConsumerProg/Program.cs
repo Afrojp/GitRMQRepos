@@ -12,6 +12,7 @@ namespace MainRMQConsumerProg
         {
             Consumer c = new Consumer();
             c.comsumeMessage();
+           
             Console.ReadLine();
         }
     }

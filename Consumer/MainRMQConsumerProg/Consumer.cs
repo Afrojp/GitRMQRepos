@@ -32,6 +32,8 @@ namespace MainRMQConsumerProg
              };
 
             channel.BasicConsume("Test_Q", true, consumer);
+            //channel.BasicConsume("Test_Q", true, "myconsumer", consumer);
+            Console.WriteLine("Waiting for message to consume...\n");
             Console.ReadLine();
        
         }
