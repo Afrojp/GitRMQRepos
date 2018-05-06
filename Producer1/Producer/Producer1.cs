@@ -50,7 +50,7 @@ namespace Producer
 
             channel.QueueDeclare("Test_Q", false, false, false, null);                    
 
-            for(var i=0;i<5;i++)
+            for(var i=0;i<15;i++)
             {
                 string message =string.Format(i+ " message from publisher.");
                 var body = Encoding.UTF8.GetBytes(message);
