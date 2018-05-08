@@ -66,5 +66,38 @@ namespace Producer
             conn.Dispose();
 
         }
+
+        public void pubMulPersitentMsg()
+        {
+            var factory = new ConnectionFactory();
+            factory.UserName = "guest";
+            factory.Password = "guest";
+            factory.HostName = "localhost";
+
+            var conn = factory.CreateConnection();
+            var channel = conn.CreateModel();
+
+            channel.QueueDeclare("Test_Q", false, false, false, null);
+            var properties = channel.CreateBasicProperties();
+            properties.Persistent = true;
+
+            for (var i = 0; i < 15; i++)
+            {
+                string message = string.Format(i + " message from publisher.");
+                var body = Encoding.UTF8.GetBytes(message);
+                Thread.Sleep(2000);
+                channel.BasicPublish("", "Test_Q", properties, body);
+
+                Console.WriteLine("Published message- " + message);
+            }
+
+
+            Console.ReadLine();
+            channel.Dispose();
+            conn.Dispose();
+
+        }
+
+
     }
 }

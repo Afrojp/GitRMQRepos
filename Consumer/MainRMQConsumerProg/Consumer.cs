@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MainRMQConsumerProg
@@ -28,11 +29,13 @@ namespace MainRMQConsumerProg
              {
                  var body = ea.Body;
                  var message = Encoding.UTF8.GetString(body);
+                 Thread.Sleep(1000);
                  Console.WriteLine("Consumed message -" + message);
              };
 
-            channel.BasicConsume("Test_Q", true, consumer);
-            //channel.BasicConsume("Test_Q", true, "myconsumer", consumer);
+            //channel.BasicConsume("Test_Q", true, consumer);
+            channel.BasicConsume("Test_Q", true, "myconsumer", consumer);
+
             Console.WriteLine("Waiting for message to consume...\n");
             Console.ReadLine();
        

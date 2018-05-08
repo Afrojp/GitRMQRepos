@@ -15,7 +15,8 @@ namespace Producer
          
             Producer1 p = new Producer1();
             //p.pubSingleMsg();
-            p.pubMultipleMsg();
+            //p.pubMultipleMsg();
+            p.pubMulPersitentMsg();
             Console.ReadLine();
         }
     }
