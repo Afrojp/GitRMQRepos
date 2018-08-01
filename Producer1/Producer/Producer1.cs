@@ -78,6 +78,7 @@ namespace Producer
             var channel = conn.CreateModel();
 
             channel.QueueDeclare("Test_Q", false, false, false, null);
+
             var properties = channel.CreateBasicProperties();
             properties.Persistent = true;
 

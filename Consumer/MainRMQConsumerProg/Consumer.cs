@@ -21,7 +21,7 @@ namespace MainRMQConsumerProg
             var conn = factory.CreateConnection();
             var channel = conn.CreateModel();
 
-            //channel.QueueDeclare(queue:"Test-Q",durable:false,exclusive:false,autoDelete:false,arguments:null);
+            //channel.QueueDeclare(queue:"Test-Q",durable:false,exclusive:false,autoDelete:false,arguments:null);//another and good way to declare queue
             channel.QueueDeclare("Test_Q", false, false, false, null);
 
             var consumer = new EventingBasicConsumer(channel);
@@ -31,12 +31,15 @@ namespace MainRMQConsumerProg
                  var message = Encoding.UTF8.GetString(body);
                  Thread.Sleep(1000);
                  Console.WriteLine("Consumed message -" + message);
+
+                 channel.BasicAck(deliveryTag: ea.DeliveryTag,multiple:true);//This is manual ack, will not lost all messages if consumer dies. Set autoACK: false when using manual ack
+
              };
 
-            //channel.BasicConsume("Test_Q", true, consumer);
-            channel.BasicConsume("Test_Q", true, "myconsumer", consumer);
+            //channel.BasicConsume("Test_Q", true, consumer);// autoACK:true - will lost all message if consumer dies before work done
+            channel.BasicConsume("Test_Q", false, "myconsumer", consumer);// autoACK:False - messages reside on Queue
 
-            Console.WriteLine("Waiting for message to consume...\n");
+            Console.WriteLine("Waiting for message to consume..\n");
             Console.ReadLine();
        
         }
